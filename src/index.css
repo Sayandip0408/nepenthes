@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+:root {
+  --forest-deep: #0d1f10;
+  --forest-dark: #1e3d22;
+  --forest-mid: #2d6030;
+  --forest-bright: #3d7d3d;
+  --gold: #c8952a;
+  --gold-light: #e8c060;
+  --cream: #f5f0e8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--forest-deep);
+  color: var(--cream);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--forest-deep); }
+::-webkit-scrollbar-thumb { background: var(--forest-mid); border-radius: 3px; }
+
+/* Animated leaf background texture */
+.leaf-pattern {
+  background-image: radial-gradient(ellipse at 20% 50%, rgba(45, 96, 48, 0.15) 0%, transparent 60%),
+                    radial-gradient(ellipse at 80% 20%, rgba(200, 149, 42, 0.08) 0%, transparent 50%);
+}
+
+/* Hero pitcher plant SVG pulse */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(200, 149, 42, 0.4); }
+  70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(200, 149, 42, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(200, 149, 42, 0); }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-fadeUp { animation: fadeUp 0.8s ease-out forwards; }
+.animate-slideIn { animation: slideIn 0.6s ease-out forwards; }
+.animate-pulse-ring { animation: pulse-ring 2.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Section divider organic shape */
+.wave-divider {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80'%3E%3Cpath d='M0,40 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,80 L0,80 Z' fill='%230d1f10'/%3E%3C/svg%3E") no-repeat bottom;
+  background-size: cover;
+  height: 80px;
+}
+
+/* Card hover effects */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(200,149,42,0.3);
+}
+
+/* Problem selector pill */
+.pest-pill {
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.pest-pill:hover, .pest-pill.active {
+  background: var(--gold);
+  color: var(--forest-deep);
+  transform: scale(1.05);
+}
+
+/* Gold accent line */
+.gold-line::before {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  margin-bottom: 1rem;
+  border-radius: 2px;
+}
+
+/* Navbar blur glass */
+.navbar-glass {
+  background: rgba(13, 31, 16, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(200, 149, 42, 0.15);
+}
+
+/* Contact form inputs */
+.form-input {
+  background: rgba(45, 96, 48, 0.15);
+  border: 1px solid rgba(200, 149, 42, 0.25);
+  color: var(--cream);
+  transition: border-color 0.2s, background 0.2s;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(45, 96, 48, 0.25);
+}
+.form-input::placeholder { color: rgba(245, 240, 232, 0.4); }
+
+/* Organic blob shape for hero */
+.blob-shape {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: blob-morph 8s ease-in-out infinite;
+}
+@keyframes blob-morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+/* Mobile menu animation */
+.mobile-menu-enter {
+  animation: slideDown 0.3s ease-out;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #e8c060, #c8952a, #f5d98b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* CTA button */
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--forest-deep);
+  font-weight: 700;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.btn-primary:hover::after { opacity: 0.15; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(200, 149, 42, 0.4); }
+
+.btn-outline {
+  border: 1.5px solid rgba(200, 149, 42, 0.6);
+  color: var(--gold-light);
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  background: rgba(200, 149, 42, 0.1);
+  transform: translateY(-2px);
+}
