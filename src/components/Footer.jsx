@@ -68,7 +68,7 @@ const Footer = () => {
                         <ul className="space-y-3 text-emerald-400 text-sm">
                             <li className="flex items-start gap-2">
                                 <span className="mt-0.5">📍</span>
-                                <span>Meria, Akna, Hooghly, West Bengal</span>
+                                <span>Haridradanga Main Rd, Chandannagar, Hooghly, West Bengal</span>
                             </li>
                             <li>
                                 <a href="tel:9745039313" className="flex items-center gap-2 hover:text-amber-400 transition-colors">
